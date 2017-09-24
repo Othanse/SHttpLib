@@ -7,3 +7,16 @@ get请求
 文件下载
 文件上传
 支持拦截器
+
+
+# 使用
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+  
+  	dependencies {
+	        compile 'com.github.w1216220482:SHttpLib:1.0'
+	}
