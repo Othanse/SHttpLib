@@ -145,23 +145,204 @@ public class HttpClient {
         return this;
     }
 
+    /**
+     * post访问一个URL
+     * (不需要请求参数，也不关心请求结果的)
+     *
+     * @param url 要访问的URL
+     * @param <T>
+     */
+    public <T> void post(String url) {
+        HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
+        httpDefaultRepository.post(url, null, EmptyBean.class, false, null);
+    }
+
+    /**
+     * post访问一个URL
+     * （自己处理返回结果的，传入HttpDefaultCallback时，将泛型设置为String就好，例如：HttpDefaultCallback<String>(){}）
+     *
+     * @param url      要请求的URL
+     * @param callback 回调
+     * @param <T>
+     */
+    public <T> void post(String url, HttpDefaultCallback<T> callback) {
+        HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
+        httpDefaultRepository.post(url, null, null, false, callback);
+    }
+
+    /**
+     * post访问一个URL
+     * （需要携带请求参数，但是不需要关心结果的）
+     *
+     * @param url 要请求的URL
+     * @param map 请求参数的键值对map
+     * @param <T>
+     */
+    public <T> void post(String url, Map<String, String> map) {
+        HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
+        httpDefaultRepository.post(url, map, null, false, null);
+    }
+
+    /**
+     * post访问一个URL
+     * （不需要携带参数）
+     *
+     * @param url      要请求的URL
+     * @param clazz    请求结果返回类型的class
+     * @param callback 请求结果回调
+     * @param <T>
+     */
     public <T> void post(String url, Class clazz, HttpDefaultCallback<T> callback) {
         HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
         httpDefaultRepository.post(url, null, clazz, false, callback);
     }
 
+    /**
+     * post访问一个URL
+     *
+     * @param url      要请求的URL
+     * @param clazz    请求结果返回类型的class
+     * @param isCache  是否缓存（如果设置为ture，可以复写HttpDefaultCallback的cache方法和noCache方法，在有缓存的时候，会将缓存通过cache方法返回，不会在success方法返回。如果没有缓存，将会回调noCache方法）
+     * @param callback 请求结果回调
+     * @param <T>
+     */
+    public <T> void post(String url, Class clazz, boolean isCache, HttpDefaultCallback<T> callback) {
+        HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
+        httpDefaultRepository.post(url, null, clazz, isCache, callback);
+    }
+
+    /**
+     * post访问一个URL
+     *
+     * @param url      要请求的URL
+     * @param map      请求参数的键值对map
+     * @param clazz    请求结果返回类型的class
+     * @param callback 请求结果回调
+     * @param <T>
+     */
+    public <T> void post(String url, Map<String, String> map, Class clazz, HttpDefaultCallback<T> callback) {
+        HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
+        httpDefaultRepository.post(url, map, clazz, false, callback);
+    }
+
+    /**
+     * post访问一个URL
+     *
+     * @param url      要请求的URL
+     * @param map      请求参数的键值对map
+     * @param clazz    请求结果返回类型的class
+     * @param isCache  是否缓存（如果设置为ture，可以复写HttpDefaultCallback的cache方法和noCache方法，在有缓存的时候，会将缓存通过cache方法返回，不会在success方法返回。如果没有缓存，将会回调noCache方法）
+     * @param callback 请求结果回调
+     * @param <T>
+     */
+    public <T> void post(String url, Map<String, String> map, Class clazz, boolean isCache, HttpDefaultCallback<T> callback) {
+        HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
+        httpDefaultRepository.post(url, map, clazz, isCache, callback);
+    }
+
+
+    //    ====================================================================================================
+
+    /**
+     * get访问一个URL
+     * (不需要请求参数，也不关心请求结果的)
+     *
+     * @param url 要访问的URL
+     * @param <T>
+     */
+    public <T> void get(String url) {
+        HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
+        httpDefaultRepository.get(url, null, EmptyBean.class, false, null);
+    }
+
+    /**
+     * get访问一个URL
+     * （自己处理返回结果的，传入HttpDefaultCallback时，将泛型设置为String就好，例如：HttpDefaultCallback<String>(){}）
+     *
+     * @param url      要请求的URL
+     * @param callback 回调
+     * @param <T>
+     */
+    public <T> void get(String url, HttpDefaultCallback<T> callback) {
+        HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
+        httpDefaultRepository.get(url, null, null, false, callback);
+    }
+
+    /**
+     * get访问一个URL
+     * （需要携带请求参数，但是不需要关心结果的）
+     *
+     * @param url 要请求的URL
+     * @param map 请求参数的键值对map
+     * @param <T>
+     */
+    public <T> void get(String url, Map<String, String> map) {
+        HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
+        httpDefaultRepository.post(url, map, null, false, null);
+    }
+
+    /**
+     * get访问一个URL
+     * （不需要携带参数）
+     *
+     * @param url      要请求的URL
+     * @param clazz    请求结果返回类型的class
+     * @param callback 请求结果回调
+     * @param <T>
+     */
     public <T> void get(String url, Class clazz, HttpDefaultCallback<T> callback) {
         HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
         httpDefaultRepository.get(url, null, clazz, false, callback);
     }
 
+    /**
+     * get访问一个URL
+     *
+     * @param url      要请求的URL
+     * @param clazz    请求结果返回类型的class
+     * @param isCache  是否缓存（如果设置为ture，可以复写HttpDefaultCallback的cache方法和noCache方法，在有缓存的时候，会将缓存通过cache方法返回，不会在success方法返回。如果没有缓存，将会回调noCache方法）
+     * @param callback 请求结果回调
+     * @param <T>
+     */
+    public <T> void get(String url, Class clazz, boolean isCache, HttpDefaultCallback<T> callback) {
+        HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
+        httpDefaultRepository.get(url, null, clazz, isCache, callback);
+    }
+
+    /**
+     * get访问一个URL
+     *
+     * @param url      要请求的URL
+     * @param map      请求参数的键值对map
+     * @param clazz    请求结果返回类型的class
+     * @param callback 请求结果回调
+     * @param <T>
+     */
     public <T> void get(String url, Map<String, String> map, Class clazz, HttpDefaultCallback<T> callback) {
         HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
         httpDefaultRepository.get(url, map, clazz, false, callback);
     }
 
     /**
-     * 获取OkHttp网络请求对象,一般使用者不需要关心此方法对象
+     * get访问一个URL
+     *
+     * @param url      要请求的URL
+     * @param map      请求参数的键值对map
+     * @param clazz    请求结果返回类型的class
+     * @param isCache  是否缓存（如果设置为ture，可以复写HttpDefaultCallback的cache方法和noCache方法，在有缓存的时候，会将缓存通过cache方法返回，不会在success方法返回。如果没有缓存，将会回调noCache方法）
+     * @param callback 请求结果回调
+     * @param <T>
+     */
+    public <T> void get(String url, Map<String, String> map, Class clazz, boolean isCache, HttpDefaultCallback<T> callback) {
+        HttpDefaultRepository<T> httpDefaultRepository = new HttpDefaultRepository<>();
+        httpDefaultRepository.get(url, map, clazz, isCache, callback);
+    }
+
+
+    // ==============================================================
+
+    /**
+     * 获取OkHttp网络请求对象,一般使用者不需要关心此方法
      *
      * @return
      */

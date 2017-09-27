@@ -13,7 +13,6 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.eagleweb.kotlinonedemo.adapter.QueryResultAdapter
 import com.example.eagleweb.kotlinonedemo.bean.QueryBean
-import com.example.eagleweb.kotlinonedemo.bean.TranslateBean
 import com.example.eagleweb.kotlinonedemo.bean.TranslateBeanBaesInfoSymbolsParts
 import com.example.eagleweb.kotlinonedemo.util.Constant
 import com.example.eagleweb.kotlinonedemo.util.ListUtil
@@ -55,10 +54,10 @@ class QueryActivity : AppCompatActivity() {
             hashMap.put("w", edit_query.text.toString())
             HttpClient.getInstance().get(Constant.TRANSLATE_URL
                     , hashMap
-                    , TranslateBean::class.java
-                    , object : HttpDefaultCallback<TranslateBean>() {
-                override fun success(bean: TranslateBean) {
-                    tv_result.text = bean.content.out
+                    , null
+                    , object : HttpDefaultCallback<String>() {
+                override fun success(bean: String) {
+                    tv_result.text = bean
                 }
 
                 override fun failed(errorMessage: ErrorMessage) {
@@ -67,6 +66,26 @@ class QueryActivity : AppCompatActivity() {
                 }
 
             })
+
+//            val hashMap = HashMap<String, String>()
+//            hashMap.put("a", "fy")
+//            hashMap.put("f", "auto")
+//            hashMap.put("t", "auto")
+//            hashMap.put("w", edit_query.text.toString())
+//            HttpClient.getInstance().get(Constant.TRANSLATE_URL
+//                    , hashMap
+//                    , TranslateBean::class.java
+//                    , object : HttpDefaultCallback<TranslateBean>() {
+//                override fun success(bean: TranslateBean) {
+//                    tv_result.text = bean.content.out
+//                }
+//
+//                override fun failed(errorMessage: ErrorMessage) {
+//                    toast("不好意思，没有查询到哦：" + errorMessage.msg)
+//                    tv_result.text = ""
+//                }
+//
+//            })
         }
     }
 

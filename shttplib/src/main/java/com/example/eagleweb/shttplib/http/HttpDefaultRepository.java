@@ -134,11 +134,19 @@ public class HttpDefaultRepository<T> {
                             try {
                                 String string = body.string();
 
-
-                                Gson gson = new Gson();
-                                final T bean = (T) gson.fromJson(string, clazz);
-                                if (callback != null) {
-                                    callback.success(bean);
+                                if (clazz == null || clazz == String.class) {
+                                    if (callback != null) {
+                                        T bean = (T) string;
+                                        // 正确获取到数据
+                                        callback.success(bean);
+                                    }
+                                } else {
+                                    Gson gson = new Gson();
+                                    T bean = (T) gson.fromJson(string, clazz);
+                                    if (callback != null) {
+                                        // 正确获取到数据
+                                        callback.success(bean);
+                                    }
                                 }
                                 if (isCache) {
                                     // 需要缓存
@@ -250,12 +258,19 @@ public class HttpDefaultRepository<T> {
                                     // 需要缓存
                                     HttpCache.getInstance().saveData(url, finalMap, string);
                                 }
-                                Gson gson = new Gson();
-                                T bean = (T) gson.fromJson(string, clazz);
-
-                                if (callback != null) {
-                                    // 正确获取到数据
-                                    callback.success(bean);
+                                if (clazz == null || clazz == String.class) {
+                                    if (callback != null) {
+                                        T bean = (T) string;
+                                        // 正确获取到数据
+                                        callback.success(bean);
+                                    }
+                                } else {
+                                    Gson gson = new Gson();
+                                    T bean = (T) gson.fromJson(string, clazz);
+                                    if (callback != null) {
+                                        // 正确获取到数据
+                                        callback.success(bean);
+                                    }
                                 }
                             } catch (Exception e) {
                                 if (callback != null) {
@@ -325,12 +340,20 @@ public class HttpDefaultRepository<T> {
                         public void onNext(ResponseBody body) {
                             try {
                                 String string = body.string();
-                                Gson gson = new Gson();
-                                T bean = (T) gson.fromJson(string, clazz);
 
-                                if (callback != null) {
-                                    // 正确获取到数据
-                                    callback.success(bean);
+                                if (clazz == null || clazz == String.class) {
+                                    if (callback != null) {
+                                        T bean = (T) string;
+                                        // 正确获取到数据
+                                        callback.success(bean);
+                                    }
+                                } else {
+                                    Gson gson = new Gson();
+                                    T bean = (T) gson.fromJson(string, clazz);
+                                    if (callback != null) {
+                                        // 正确获取到数据
+                                        callback.success(bean);
+                                    }
                                 }
                             } catch (Exception e) {
                                 if (callback != null) {
@@ -396,12 +419,19 @@ public class HttpDefaultRepository<T> {
                         public void onNext(ResponseBody body) {
                             try {
                                 String string = body.string();
-                                Gson gson = new Gson();
-                                T bean = (T) gson.fromJson(string, clazz);
-
-                                if (callback != null) {
-                                    // 正确获取到数据
-                                    callback.success(bean);
+                                if (clazz == null || clazz == String.class) {
+                                    if (callback != null) {
+                                        T bean = (T) string;
+                                        // 正确获取到数据
+                                        callback.success(bean);
+                                    }
+                                } else {
+                                    Gson gson = new Gson();
+                                    T bean = (T) gson.fromJson(string, clazz);
+                                    if (callback != null) {
+                                        // 正确获取到数据
+                                        callback.success(bean);
+                                    }
                                 }
                             } catch (Exception e) {
                                 if (callback != null) {
