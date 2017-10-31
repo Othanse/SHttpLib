@@ -195,6 +195,9 @@ public class HttpDefaultRepository<T> {
             Response<ResponseBody> execute = mExecutePost.execute();
             String string = execute.body().string();
             Gson gson = new Gson();
+            if (clazz == null) {
+                return (T) string;
+            }
             final T bean = (T) gson.fromJson(string, clazz);
             return bean;
         } catch (Exception e) {
