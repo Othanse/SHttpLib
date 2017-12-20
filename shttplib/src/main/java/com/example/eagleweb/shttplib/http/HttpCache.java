@@ -16,8 +16,8 @@ public class HttpCache {
 
     private static ACache httpCache1;
     private static String cacheId;
-    private static String uid   = "eagle";
-    private        String mPath = Environment.getExternalStorageDirectory() + "com.eagleweb.http";
+    private static String uid = "eagle";
+    private String mPath = Environment.getExternalStorageDirectory() + File.separator + "com.eagleweb.http";
 
     private HttpCache() {
 

@@ -5,9 +5,7 @@
       <module fileurl="file://E:\AndroidProject\SHttpLib\SHttpLib\KotlinOneDemo.iml" filepath="E:\AndroidProject\SHttpLib\SHttpLib\KotlinOneDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/SHttpLib.iml" filepath="$PROJECT_DIR$/SHttpLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://E:\AndroidProject\SHttpLib\SHttpLib\app\app.iml" filepath="E:\AndroidProject\SHttpLib\SHttpLib\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/shttplib/shttplib.iml" filepath="$PROJECT_DIR$/shttplib/shttplib.iml" />
-      <module fileurl="file://E:\AndroidProject\SHttpLib\SHttpLib\shttplib\shttplib.iml" filepath="E:\AndroidProject\SHttpLib\SHttpLib\shttplib\shttplib.iml" />
     </modules>
   </component>
 </project>

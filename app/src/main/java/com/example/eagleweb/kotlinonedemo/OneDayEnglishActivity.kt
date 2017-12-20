@@ -12,6 +12,7 @@ import com.example.eagleweb.kotlinonedemo.util.Constant
 import com.example.eagleweb.shttplib.http.ErrorMessage
 import com.example.eagleweb.shttplib.http.HttpClient
 import com.example.eagleweb.shttplib.http.HttpDefaultCallback
+import com.example.eagleweb.shttplib.http.HttpDefaultRepository
 
 
 class OneDayEnglishActivity : Activity() {
