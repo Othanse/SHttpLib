@@ -1,11 +1,11 @@
 package com.example.eagleweb.kotlinonedemo;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, QueryActivity.class));
     }
 
-    public void record(View view) {
-        startActivity(new Intent(this, RecordActivity.class));
-    }
+//    public void record(View view) {
+//        startActivity(new Intent(this, RecordActivity.class));
+//    }
 
     //    /**
     //     * 获取鉴权header所需要的值 Authorization、x-amz-date，请根据实际需求调整示例中参数值。

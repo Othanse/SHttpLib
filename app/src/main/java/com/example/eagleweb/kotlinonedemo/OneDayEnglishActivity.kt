@@ -1,9 +1,9 @@
 package com.example.eagleweb.kotlinonedemo
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -14,7 +14,7 @@ import com.example.eagleweb.shttplib.http.HttpClient
 import com.example.eagleweb.shttplib.http.HttpDefaultCallback
 
 
-class OneDayEnglishActivity : AppCompatActivity() {
+class OneDayEnglishActivity : Activity() {
 
     lateinit var tv_english: TextView
     lateinit var tv_chinese: TextView
@@ -23,9 +23,9 @@ class OneDayEnglishActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_one_day_english)
-        tv_english = findViewById(R.id.tv_english) as TextView
-        tv_chinese = findViewById(R.id.tv_chinese) as TextView
-        iv_img = findViewById(R.id.iv_img) as ImageView
+        tv_english = findViewById<TextView>(R.id.tv_english) as TextView
+        tv_chinese = findViewById<TextView>(R.id.tv_chinese) as TextView
+        iv_img = findViewById<ImageView>(R.id.iv_img) as ImageView
 
         initData()
     }
@@ -41,11 +41,15 @@ class OneDayEnglishActivity : AppCompatActivity() {
                 // 每日一句 中文
                 tv_chinese.text = bean.note
 
-                // 每日一句 合成图片
-                Glide.with(this@OneDayEnglishActivity)
-                        .load(bean.fenxiang_img)
-                        .crossFade()
-                        .into(iv_img)
+                try {
+                    // 每日一句 合成图片
+                    Glide.with(this@OneDayEnglishActivity)
+                            .load(bean.fenxiang_img)
+                            .crossFade()
+                            .into(iv_img)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
 
                 // 合成图片的点击事件 跳转到系统浏览器
                 iv_img.setOnClickListener {

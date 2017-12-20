@@ -46,7 +46,7 @@ class QueryResultAdapter(var context: Context, var list: List<TranslateBeanBaesI
         }
 
         fun initView() {
-            tv_content = itemView.findViewById(R.id.tv_content) as TextView
+            tv_content = itemView.findViewById<TextView>(R.id.tv_content) as TextView
         }
     }
 }

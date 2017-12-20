@@ -1,8 +1,8 @@
 package com.example.eagleweb.kotlinonedemo
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
@@ -20,7 +20,7 @@ import com.example.eagleweb.shttplib.http.ErrorMessage
 import com.example.eagleweb.shttplib.http.HttpClient
 import com.example.eagleweb.shttplib.http.HttpDefaultCallback
 
-class QueryActivity : AppCompatActivity() {
+class QueryActivity : Activity() {
 
     private lateinit var rv_result_list: RecyclerView
     private lateinit var edit_query: EditText
@@ -30,10 +30,10 @@ class QueryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_translate)
-        rv_result_list = findViewById(R.id.rv_result_list) as RecyclerView
-        edit_query = findViewById(R.id.edit_query) as EditText
-        btn_query = findViewById(R.id.btn_query) as Button
-        tv_result = findViewById(R.id.tv_result) as TextView
+        rv_result_list = findViewById<RecyclerView>(R.id.rv_result_list) as RecyclerView
+        edit_query = findViewById<EditText>(R.id.edit_query) as EditText
+        btn_query = findViewById<Button>(R.id.btn_query) as Button
+        tv_result = findViewById<TextView>(R.id.tv_result) as TextView
 
     }
 
